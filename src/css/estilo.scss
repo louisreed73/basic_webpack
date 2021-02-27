@@ -1,0 +1,55 @@
+
+@import "./abstracts/abstracts";
+
+:root {
+    font-size: $root-fontSize;
+    font-family: 'Montserrat', sans-serif;}
+
+body {
+    background:$color-secondary;
+    color:white;
+}
+
+h1 {
+    font-weight:300;
+    font-size: 3rem;
+}
+
+img {
+    display:block;
+    max-width: 100%;
+    margin:0 auto;
+}
+
+.grid {
+    &_container {
+        display:grid;
+        // grid: repeat(auto-fill,minmax(30em,1fr)) / repeat(auto-fill,minmax(30em,1fr));
+        // grid-auto-rows: 30em;
+        // grid-auto-columns: 30em;
+        grid: auto-flow min-content  /  repeat(auto-fill,minmax(30em,1fr));
+        grid-gap:1em;
+        // grid-auto-flow: column;
+    }
+    &_item {
+        display:inline-flex;
+        background:$color-terciary;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        span, &-yellow span {
+            transition: letter-spacing 1.25s, transform .5s;
+        }
+        &:hover span, &-yellow:hover span {
+            letter-spacing: .5rem;
+            transform:scale(1.3);
+        }
+        &-yellow {
+            @extend .grid_item ;
+            background:$color-primary;
+            box-shadow: 2px 2px 6px 0px rgba(0,0,0,.1);
+        }
+        // width:10em;
+    }
+
+}
